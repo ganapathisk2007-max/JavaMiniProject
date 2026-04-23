@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
 public class ChatService {
 
@@ -16,6 +18,7 @@ public class ChatService {
     @Autowired
     private UserRepository userRepository;
 
+    @Transactional
     public ChatMessage sendGroupMessage(User sender, Classroom classroom, String content, String fileUrl, String fileName, String fileType) {
         ChatMessage message = ChatMessage.builder()
                 .sender(sender)
@@ -28,6 +31,7 @@ public class ChatService {
         return chatMessageRepository.save(message);
     }
 
+    @Transactional
     public ChatMessage sendPersonalMessage(User sender, User receiver, String content, String fileUrl, String fileName, String fileType) {
         ChatMessage message = ChatMessage.builder()
                 .sender(sender)

@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
 public class QuizService {
 
@@ -24,6 +26,7 @@ public class QuizService {
     @Autowired
     private com.classroom.cse_a_classroom.repository.UserRepository userRepository;
 
+    @Transactional
     public Quiz createQuiz(QuizDTO quizDTO, User teacher, Classroom classroom) {
         Quiz quiz = Quiz.builder()
                 .title(quizDTO.getTitle())

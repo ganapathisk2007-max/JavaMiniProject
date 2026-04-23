@@ -77,7 +77,7 @@ To ensure a smooth user experience, the app handles multiple tasks at once:
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Java 25 installed.
+- Java 21 installed.
 - A modern web browser.
 
 ### Running Locally
